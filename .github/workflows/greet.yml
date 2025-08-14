@@ -1,0 +1,26 @@
+# .github/workflows/greet.yml
+name: Greet User
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      # Step 3: Run the Python script
+      - name: Run Python Script
+        run: python script.py "John Doe"
